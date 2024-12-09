@@ -3,6 +3,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db'); // Import the MongoDB connection function from db.js
+const cors = require('cors');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -11,6 +12,9 @@ dotenv.config();
 connectDB();
 
 const app = express();
+
+// Enable CORS
+app.use(cors());
 
 // Middleware to parse JSON data
 app.use(express.json());
